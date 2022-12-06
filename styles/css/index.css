@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
   /* MAIN COLOR */
@@ -159,41 +157,4 @@ input:focus {
 .orange-color {
   background-color: var(--main-color-orange);
   color: #fff;
-}
-
-.status-card::before {
-  content: "";
-  width: 100%;
-  padding-top: 100%;
-  border-radius: 50%;
-
-  position: absolute;
-  left: -50%;
-  top: 0;
-
-  background-image: linear-gradient(
-    to top right,
-    var(--main-color),
-    var(--second-color)
-  );
-  transform: scale(0);
-  transition: transform 0.8s ease 0s;
-}
-
-.status-card:hover::before {
-  transform: scale(3);
-}
-
-/* Theme menu */
-.theme-menu.active {
-  right: 0;
-}
-.mode-list__color.active > i {
-  transform: scale(1);
-}
-
-/* Layout */
-.layout__content-up.show {
-  opacity: 1;
-  transform: translateY(0);
 }

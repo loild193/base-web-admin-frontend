@@ -1,13 +1,69 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   mode: 'jit',
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'main-bg': 'var(--main-bg)',
+        'second-bg': 'var(--second-bg)',
+        'txt-color': 'var(--txt-color)',
+        'txt-white': 'var(--txt-white)',
+        'main-color': 'var(--main-color)',
+        'second-color': 'var(--second-color)',
+
+        'main-bg-light': 'var(--main-bg-light)',
+        'second-bg-light': 'var(--second-bg-light)',
+        'txt-color-light': 'var(--txt-color-light)',
+
+        'main-bg-dark': 'var(--main-bg-dark)',
+        'second-bg-dark': 'var(--second-bg-dark)',
+        'txt-color-dark': 'var(--txt-color-dark)',
+
+        'main-color-blue': 'var(--main-color-blue)',
+        'second-color-blue': 'var(--second-color-blue)',
+
+        'main-color-red': 'var(--main-color-red)',
+        'second-color-red': 'var(--second-color-red)',
+
+        'main-color-cyan': 'var(--main-color-cyan)',
+        'second-color-cyan': 'var(--second-color-cyan)',
+
+        'main-color-green': 'var(--main-color-green)',
+        'second-color-green': 'var(--second-color-green)',
+
+        'main-color-orange': 'var(--main-color-orange)',
+        'second-color-orange': 'var(--second-color-orange)',
+      },
+    },
     fontFamily: {},
     maxWidth: {
       unset: 'unset',
+    },
+    width: {
+      'sidebar-width': 'var(--sidebar-width)',
+      'sidebar-width-1024': 'var(--sidebar-width-1024)',
+      'max-content': 'max-content',
+    },
+    padding: {
+      'sidebar-width': 'var(--sidebar-width)',
+      'sidebar-width-1024': 'var(--sidebar-width-1024)',
+    },
+    borderRadius: {
+      'border-radius': 'var(--border-radius)',
+    },
+    boxShadow: {
+      'box-shadow': 'var(--box-shadow)',
+      'box-shadow-light': 'var(--box-shadow-light)',
+      'box-shadow-dark': 'var(--box-shadow-dark)',
+    },
+    height: {
+      'topnav-height': 'var(--topnav-height)',
+    },
+    transitionTimingFunction: {
+      'transition-cubic': 'var(--transition-cubic)',
+    },
+    fontSize: {
+      'icon-fontsize-1024': 'var(--icon-fontsize-1024)',
     },
     screens: {
       xs: '576px',

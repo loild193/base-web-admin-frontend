@@ -1,0 +1,6 @@
+export enum TYPE {
+  DANGER = 'DANGER',
+  SUCCESS = 'SUCCESS',
+  PRIMARY = 'PRIMARY',
+  WARNING = 'WARNING',
+}

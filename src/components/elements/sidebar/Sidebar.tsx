@@ -20,9 +20,9 @@ export const Sidebar = () => {
   const setShift = () => setShiftLeft(!shiftLeft)
 
   let sidebarClassName =
-    'w-sidebar-width h-screen fixed left-0 top-0 bg-main-bg shadow-box-shadow transition-[width] duration-300 ease'
+    'w-sidebar-width h-[100vh] fixed left-0 top-0 bg-main-bg shadow-box-shadow transition-[width] duration-300 ease'
   if (shiftLeft) {
-    sidebarClassName = `${sidebarClassName} w-sidebar-width-1024`
+    sidebarClassName = `${sidebarClassName} !w-sidebar-width-1024`
   }
   return (
     <div className={sidebarClassName}>
@@ -30,7 +30,7 @@ export const Sidebar = () => {
         <img
           src="/assets/images/my-logo.png"
           alt="company logo"
-          className={shiftLeft ? 'max-w-[80%] h-[30px]' : 'max-w-full h-[45px] transition-all duration-[400] ease'}
+          className={shiftLeft ? 'max-w-[80%] h-[30px]' : 'max-w-full h-[45px] transition-all duration-[400ms] ease'}
         />
       </div>
       <div
@@ -42,11 +42,11 @@ export const Sidebar = () => {
       >
         {!shiftLeft ? (
           <>
-            <i className={`bx bx-chevrons-left ${shiftLeft ? '' : 'mr-[10px] text-[1.5rem]'}`} />
+            <img src="/assets/images/right.svg" alt="Right" className="mr-[10px] w-[20px] rotate-180" />
             <span className="capitalize">Shift</span>
           </>
         ) : (
-          <i className="bx bx-chevrons-right" />
+          <img src="/assets/images/right.svg" alt="Right" className="w-[20px]" />
         )}
       </div>
       {sidebarItems.map(({ route, icon, display_name }, index) => (

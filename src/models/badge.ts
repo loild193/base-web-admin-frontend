@@ -1,6 +1,6 @@
 export enum TYPE {
-  DANGER = 'DANGER',
-  SUCCESS = 'SUCCESS',
-  PRIMARY = 'PRIMARY',
-  WARNING = 'WARNING',
+  DANGER = 'danger',
+  SUCCESS = 'success',
+  PRIMARY = 'primary',
+  WARNING = 'warning',
 }

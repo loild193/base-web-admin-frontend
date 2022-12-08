@@ -4,8 +4,7 @@ import { Footer } from '@components/common/Footer'
 import { User } from '@components/common/User'
 import { ThemeMenu } from '../theme-menu/ThemeMenu'
 import { Dropdown } from '../dropdown/Dropdown'
-import notifications from 'public/assets/JsonData/notification.json'
-import userMenus from 'public/assets/JsonData/user_menus.json'
+import { notifications, subMenu } from '@src/models/data'
 
 const currentUser = {
   displayName: 'Uchiha Obito',
@@ -24,30 +23,25 @@ export const TopNav = () => {
         <input
           type="text"
           placeholder="Search here..."
-          className="w-full h-full pl-5 pr-[60px] py-[10px] rounded-border-radius text-[1rem] bg-main-bg text-txt-color"
+          className="w-full h-full pl-[20px] pr-[60px] py-[10px] rounded-border-radius
+          text-[1rem] bg-main-bg text-txt-color"
         />
-        <i className="bx bx-search absolute right-5 text-[1.25rem]" />
+        <img src="/assets/images/search.svg" alt="Search" className="absolute right-[20px] w-[20px]" />
       </div>
       <div className="topnav__right flex items-center gap-x-[30px]">
-        <div>
-          <Dropdown
-            customToggle={() => <User displayName={currentUser.displayName} image={currentUser.image} />}
-            contentData={userMenus}
-            renderItems={(item) => <DropdownItem icon={item.icon} content={item.content} />}
-          />
-        </div>
-        <div>
-          <Dropdown
-            icon="bx bx-bell"
-            badge="19"
-            contentData={notifications}
-            renderItems={(item) => <DropdownItem icon={item.icon} content={item.content} />}
-            renderFooter={renderFooter}
-          />
-        </div>
-        <div>
-          <ThemeMenu />
-        </div>
+        <Dropdown
+          customToggle={() => <User displayName={currentUser.displayName} image={currentUser.image} />}
+          contentData={subMenu}
+          renderItems={(item) => <DropdownItem key={item.id} icon={item.icon} content={item.content} />}
+        />
+        <Dropdown
+          icon="/assets/images/bell.svg"
+          badge="19"
+          contentData={notifications}
+          renderItems={(item) => <DropdownItem key={item.id} icon={item.icon} content={item.content} />}
+          renderFooter={renderFooter}
+        />
+        <ThemeMenu />
       </div>
     </div>
   )

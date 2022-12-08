@@ -8,14 +8,16 @@ interface Props {
 }
 
 export const TableBody = ({ item }: Props) => (
-  <tr className="hover:bg-main-color text-txt-white">
+  <tr className="hover:bg-main-color hover:text-txt-white cursor-pointer">
     {Object.keys(item).map((key, index) =>
       key === 'status' ? (
-        <td key={index}>
+        <td key={index} className="capitalize px-[10px] py-[15px]">
           <Badge type={orderStatus[item[key]] as TYPE} content={item[key]} />
         </td>
       ) : (
-        <td key={index}>{item[key]}</td>
+        <td key={index} className="capitalize px-[10px] py-[15px]">
+          {item[key]}
+        </td>
       ),
     )}
   </tr>

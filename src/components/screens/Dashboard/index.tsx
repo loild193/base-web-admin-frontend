@@ -2,10 +2,10 @@ import { useBoundStore } from '@src/zustand'
 import React from 'react'
 import Chart from 'react-apexcharts'
 import shallow from 'zustand/shallow'
-import statusCards from 'public/assets/JsonData/status-card-data.json'
 import { Card } from '@components/common/Card'
 import { latestOrders, topCustomers } from '@utils/table'
 import { StatusCard } from '@components/elements/status-card/StatusCard'
+import { statusCards } from '@src/models/data'
 
 const series: ApexAxisChartSeries = [
   {
@@ -47,40 +47,38 @@ export const Dashboard = () => {
   return (
     <>
       <h2 className="page-header">Dashboard</h2>
-      <div className="row">
-        <div className="col-6">
-          <div className="row">
-            {statusCards.map(({ icon, count, title }, index) => (
-              <div className="col-6" key={index}>
-                <StatusCard icon={icon} count={count} title={title} />
-              </div>
-            ))}
-          </div>
+      <div className="grid grid-cols-2 gap-x-6">
+        <div className="grid grid-cols-2 gap-4">
+          {statusCards.map(({ icon, count, title }, index) => (
+            <div className="col-6" key={index}>
+              <StatusCard icon={icon} count={count} title={title} />
+            </div>
+          ))}
         </div>
-        <div className="col-6">
-          <div className="card full-height">
-            <Chart
-              options={
-                mode === 'theme-mode-dark'
-                  ? {
-                      ...options,
-                      theme: { mode: 'dark' },
-                    }
-                  : {
-                      ...options,
-                      theme: { mode: 'light' },
-                    }
-              }
-              series={series}
-              type="line"
-              height="100%"
-            />
-          </div>
+        <div className="card full-height">
+          <Chart
+            options={
+              mode === 'theme-mode-dark'
+                ? {
+                    ...options,
+                    theme: { mode: 'dark' },
+                  }
+                : {
+                    ...options,
+                    theme: { mode: 'light' },
+                  }
+            }
+            series={series}
+            type="line"
+            height="100%"
+          />
         </div>
-        <div className="col-4">
+      </div>
+      <div className="grid grid-flow-col gap-x-6">
+        <div className="col-span-4">
           <Card headerTitle="top customers" limit={10} tableData={topCustomers} />
         </div>
-        <div className="col-8">
+        <div className="col-span-8">
           <Card headerTitle="last orders" limit={10} tableData={latestOrders} />
         </div>
       </div>

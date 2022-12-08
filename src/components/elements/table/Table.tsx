@@ -58,7 +58,7 @@ export const Table: React.FC<Props> = ({ headData, bodyData, limit }) => {
         <div className="mt-5 w-full flex items-center justify-end gap-x-[10px]">
           {range.map((item, index) => (
             <div
-              className={`w-9 h-9 rounded-[50%] flex items-center justify-center cursor-pointer
+              className={`w-[36px] h-[36px] rounded-[50%] flex items-center justify-center cursor-pointer
               hover:bg-second-color hover:text-txt-white ${
                 currentPage === item + 1 && 'bg-main-color text-txt-white font-semibold'
               }`}

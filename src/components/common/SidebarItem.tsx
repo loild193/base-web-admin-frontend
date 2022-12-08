@@ -13,7 +13,7 @@ export const SidebarItem: React.FC<Props> = ({ active = false, icon = '', title 
     : ''
 
   return (
-    <div className="px-5 py-0">
+    <div className="px-[20px] py-0">
       <div
         className={`${
           shiftedLeft

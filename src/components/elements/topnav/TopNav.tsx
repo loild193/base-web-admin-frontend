@@ -15,7 +15,10 @@ const renderFooter = () => <Footer />
 
 export const TopNav = () => {
   return (
-    <div className="topnav p-[30px] h-topnav-height flex items-center justify-between">
+    <div
+      className="topnav p-[30px] h-topnav-height flex items-center justify-between
+    max-md:flex-col max-md:!h-[100%] max-md:gap-y-6 max-xs:pt-[10px]"
+    >
       <div
         className="topnav__search h-[50px] relative flex items-center rounded-border-radius
       bg-main-bg shadow-box-shadow overflow-hidden"

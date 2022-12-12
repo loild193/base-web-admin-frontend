@@ -47,8 +47,8 @@ export const Dashboard = () => {
   return (
     <>
       <h2 className="page-header">Dashboard</h2>
-      <div className="grid grid-cols-2 gap-x-6">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-x-6 max-md:flex max-md:flex-col max-xs:grid max-xs:grid-cols-1">
+        <div className="grid grid-cols-2 gap-4 max-xs:grid-cols-1">
           {statusCards.map(({ icon, count, title }, index) => (
             <div className="col-6" key={index}>
               <StatusCard icon={icon} count={count} title={title} />
@@ -74,11 +74,11 @@ export const Dashboard = () => {
           />
         </div>
       </div>
-      <div className="grid grid-flow-col gap-x-6">
-        <div className="col-span-4">
+      <div className="grid grid-flow-col gap-x-6 max-lg:flex max-lg:flex-wrap">
+        <div className="col-span-4 max-lg:col-span-12 overflow-x-auto">
           <Card headerTitle="top customers" limit={10} tableData={topCustomers} />
         </div>
-        <div className="col-span-8">
+        <div className="col-span-8 max-lg:col-span-12 overflow-x-auto">
           <Card headerTitle="last orders" limit={10} tableData={latestOrders} />
         </div>
       </div>

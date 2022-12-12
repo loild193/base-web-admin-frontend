@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useRef } from 'react'
+import { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import shallow from 'zustand/shallow'
 import { Sidebar } from '@components/elements/sidebar/Sidebar'
 import { TopNav } from '@components/elements/topnav/TopNav'
@@ -16,6 +16,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     }),
     shallow,
   )
+  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false)
   const upButtonRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -36,14 +37,26 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     })
   }
 
+  const onChangeSidebarPosition = () => {
+    setIsSidebarVisible(!isSidebarVisible)
+  }
+
   return (
     <div className={`layout text-txt-color ${mode} ${color}`}>
-      <Sidebar />
+      <Sidebar isSidebarVisible={isSidebarVisible} />
       <div
         className={`pl-sidebar-width bg-second-bg min-h-screen transition-[padding-left] duration-300 ease ${
           shiftLeft ? 'pl-sidebar-width-1024' : ''
-        }`}
+        } max-xs:pl-[0px]`}
       >
+        <div className="flex justify-end p-[12px]">
+          <img
+            src="/assets/images/menu.svg"
+            alt="Menu"
+            className="w-[32px] h-[32px] max-xs:inline xs:hidden"
+            onClick={onChangeSidebarPosition}
+          />
+        </div>
         <TopNav />
         <div className="layout__content-main p-[30px]">
           {children}

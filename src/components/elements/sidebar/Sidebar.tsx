@@ -6,7 +6,11 @@ import { SidebarItem } from '../../common/SidebarItem'
 import sidebarItems from 'public/assets/JsonData/sidebar_routes.json'
 import { useBoundStore } from '@src/zustand'
 
-export const Sidebar = () => {
+interface Props {
+  isSidebarVisible: boolean
+}
+
+export const Sidebar: React.FC<Props> = ({ isSidebarVisible }) => {
   const router = useRouter()
   const pathname = router.pathname
   const { shiftLeft, setShiftLeft } = useBoundStore(
@@ -19,8 +23,12 @@ export const Sidebar = () => {
   const activeItem = sidebarItems.findIndex((item) => item.route === pathname)
   const setShift = () => setShiftLeft(!shiftLeft)
 
-  let sidebarClassName =
-    'w-sidebar-width h-[100vh] fixed left-0 top-0 bg-main-bg shadow-box-shadow transition-[width] duration-300 ease'
+  let sidebarClassName = `w-sidebar-width h-[100vh] fixed left-0 top-0 bg-main-bg shadow-box-shadow transition-[width] duration-300 ease
+    max-xs:!w-[fit-content] max-xs:invisible ${
+      isSidebarVisible
+        ? 'max-xs:!visible max-xs:translate-x-0 max-xs:z-[100]'
+        : 'max-xs:invisible max-xs:translate-x-[-200px]'
+    } transition duration-300 ease-transition-cubic`
   if (shiftLeft) {
     sidebarClassName = `${sidebarClassName} !w-sidebar-width-1024`
   }

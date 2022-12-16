@@ -23,7 +23,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prefer-arrow: ^1.2.3
   eslint-plugin-prettier: ^4.2.1
-  husky: ^8.0.2
+  husky: ^8.0.0
   jsonwebtoken: ^8.5.1
   logt: ^1.4.5
   lru-cache: ^7.14.1
